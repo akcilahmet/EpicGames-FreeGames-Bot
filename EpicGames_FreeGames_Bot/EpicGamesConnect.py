@@ -31,7 +31,7 @@ class EpicGamesConnect:
         driver.switch_to.window(new_window_handle)
         profile_select_main=WaitHelper.wait_for_element(driver, By.XPATH,EpicGamesConnect.PROFILE_SELECT_MAIN_PATH)
         profile_children=WaitHelper.wait_for_elements(profile_select_main,By.XPATH,EpicGamesConnect.PROFILE_CHILD_PATH)
-        profile_index=int(input("Index the user account you want to log in to(e.g. 0 - :"))
+        profile_index=int(input("Index the user account you want to log in to(e.g. 0 - ):"))
         profile_children[profile_index].click()
         WaitHelper.random_sleep(4, 6)
         EpicGamesConnect.free_games_cost(driver)

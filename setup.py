@@ -4,7 +4,7 @@ with open("README.md","r") as f:
     description=f.read()
 setup(
     name='EPICGAMES_FREE_PURCHASE',
-    version='0.1.0',
+    version='1.0',
     packages=find_packages(),
     install_requires=[
         'selenium',
