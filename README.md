@@ -1,4 +1,4 @@
 # EpicGames-FreeGames-
 ```
-pip install EPICGAMES-FREE-PURCHASE==0.1.0
+pip install EPICGAMES-FREE-PURCHASE==1.0
 ```
