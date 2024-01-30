@@ -14,14 +14,16 @@ This Python script can be used to track and automatically purchase free games of
    ```bash
    pip --version
 
+4. **Upgrade pip:**
+   ```bash
+   pip install --upgrade pip
 
-```
-pip install --upgrade pip
-```
+5. **Download and Install the Script:**
+   ```bash
+   pip install EPICGAMES-FREE-PURCHASE==1.0
+
+6. **To run the script, type the following command in the command prompt or terminal:**
+   ```bash
+   EPICGAMES_START
    
-```
-pip install EPICGAMES-FREE-PURCHASE==1.0
-```
-```
-EPICGAMES_START
-```
+
