@@ -3,8 +3,11 @@ from selenium.webdriver.common.by import By
 from EpicGames_FreeGames_Bot.WaitHelper import WaitHelper
 
 class EpicGamesConnect:
+
     GOOGLE_LOGIN_PATH= '//*[@id="login-with-google"]'
     LOGIN_BTN_PATH='//*[@id="view_container"]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div/div/ul/li[1]/div'
+    PROFILE_SELECT_MAIN_PATH='//*[@id="view_container"]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div/div/ul'
+    PROFILE_CHILD_PATH='//*[@id="view_container"]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div/div/ul/li[1]'
     FREE_NOW_COST_ELEMENT_PATH='//*[@id="dieselReactWrapper"]/div/div[4]/main/div[2]/div/div/div/div[2]/div[2]/span[4]/div/div/section/div/div[1]/div/div/a/div/div/div[1]/div[2]'
     FREE_BUY_BUTTON_PATH='//*[@id="dieselReactWrapper"]/div/div[4]/main/div[2]/div/div/div/div[2]/div[3]/div/aside/div/div/div[6]/div/button'
     @staticmethod
@@ -26,7 +29,10 @@ class EpicGamesConnect:
         next_step.click()
         new_window_handle = driver.window_handles[-1]  # Son eklenen pencerenin tanımlayıcısını al
         driver.switch_to.window(new_window_handle)
-        WaitHelper.wait_for_element(driver, By.XPATH,EpicGamesConnect.LOGIN_BTN_PATH).click()
+        profile_select_main=WaitHelper.wait_for_element(driver, By.XPATH,EpicGamesConnect.PROFILE_SELECT_MAIN_PATH)
+        profile_children=WaitHelper.wait_for_elements(profile_select_main,By.XPATH,EpicGamesConnect.PROFILE_CHILD_PATH)
+        profile_index=int(input("Index the user account you want to log in to(e.g. 0 - :"))
+        profile_children[profile_index].click()
         WaitHelper.random_sleep(4, 6)
         EpicGamesConnect.free_games_cost(driver)
 

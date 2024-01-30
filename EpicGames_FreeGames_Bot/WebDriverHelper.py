@@ -1,3 +1,5 @@
+import os
+
 from selenium import webdriver
 class WebDriverHelper:
     @staticmethod
@@ -5,7 +7,8 @@ class WebDriverHelper:
         options = webdriver.ChromeOptions()
 
         options.add_argument(f'--profile-directory={profiler_directory}')
-        options.add_argument("user-data-dir=C:\\Users\\aysec\\AppData\\Local\\Google\\Chrome\\User Data\\")
+        user_data_dir = os.path.join(os.environ['LOCALAPPDATA'], 'Google', 'Chrome', 'User Data')
+        options.add_argument(f"user-data-dir={user_data_dir}")
 
         options.add_argument('--no-first-run')
         options.add_argument('--no-default-browser-check')
